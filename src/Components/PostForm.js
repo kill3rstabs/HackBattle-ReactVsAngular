@@ -1,6 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-export const PostForm = () => {
+export const PostForm = ({addPosts}) => {
+  const [msg, setMsg] = useState('');
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (!msg) {
+      alert("Post cannot be blank");
+    } else {
+      addPosts(msg);
+      setMsg("");
+    }
+  }
   return (
     <div className="container mt-5">
       <div className="row justify-content-center">
@@ -8,11 +18,12 @@ export const PostForm = () => {
           <div className="card">
             <div className="card-body">
               <h3 className="card-title mb-4">Create a New Post</h3>
-              <form onSubmit={submit}>
+              <form onSubmit={handleSubmit}>
                 
                 <div className="mb-3">
                   <label htmlFor="postContent" className="form-label">Post Content</label>
-                  <textarea className="form-control" id="postContent" rows="5" placeholder="Enter post content"></textarea>
+                  <textarea className="form-control" id="postContent" rows="5" placeholder="Enter post content" value={msg}
+          onChange={(event) => setMsg(event.target.value)} ></textarea>
                 </div>
                 
                 
@@ -29,5 +40,3 @@ export const PostForm = () => {
     </div>
   );
 };
-
-

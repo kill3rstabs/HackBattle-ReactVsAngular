@@ -1,13 +1,17 @@
 import React from 'react';
 
-export const SidePanel = () => {
+export const SidePanel = ({isOpen}) => {
   return (
-    <aside id="sidebar" className="sidebar">
+    <div>
+      
+      {isOpen && (
+        <div>
+          <aside id="sidebar" className="sidebar">
       <ul className="sidebar-nav" id="sidebar-nav">
         <li className="nav-item">
           <a className="nav-link" href="index.html">
             <i className="bi bi-grid"></i>
-            <span>Dashboard</span>
+            <span>Messages</span>
           </a>
         </li>
         <li className="nav-item">
@@ -89,5 +93,9 @@ export const SidePanel = () => {
         </li>
       </ul>
     </aside>
-  );
+
+        </div>
+      )}
+    </div>
+      );
 };

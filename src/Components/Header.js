@@ -1,14 +1,19 @@
 import React from 'react';
 
-export const Header = () => {
+export const Header = ({toggleSidePanel}) => {
   return (
     <header id="header" className="header fixed-top d-flex align-items-center">
       <div className="d-flex align-items-center justify-content-between">
         <a href="index.html" className="logo d-flex align-items-center">
-          <img src="assets/img/logo.png" alt="" />
+          <img src="./public/Logo.png" alt="" />
           <span className="d-none d-lg-block">HopeHub</span>
         </a>
-        <i className="bi bi-list toggle-sidebar-btn"></i>
+        
+        <button
+  className="bi bi-list toggle-sidebar-btn btn btn-outline-secondary"
+  style={{ background: 'white', borderColor: 'transparent' }}
+  onClick={toggleSidePanel}
+></button>
       </div>
 
       <div className="search-bar">
