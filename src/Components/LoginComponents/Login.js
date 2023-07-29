@@ -1,69 +1,37 @@
 import React from 'react';
 
-export const LoginPage = () => {
-  return (
-    <section className="gradient-form h-full bg-neutral-200 dark:bg-neutral-700">
-      <div className="container h-full p-10">
-        <div className="g-6 flex h-full flex-wrap items-center justify-center text-neutral-800 dark:text-neutral-200">
-          <div className="w-full">
-            <div className="block rounded-lg bg-white shadow-lg dark:bg-neutral-800">
-              <div className="g-0 lg:flex lg:flex-wrap">
-                {/* Left column container */}
-                <div className="px-4 md:px-0 lg:w-6/12">
-                  <div className="md:mx-6 md:p-12">
-                    {/* Logo */}
-                    <div className="text-center">
-                      <img
-                        className="mx-auto w-48"
-                        src="https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
-                        alt="logo"
-                      />
-                      <h4 className="mb-12 mt-1 pb-1 text-xl font-semibold">
-                        We are The Lotus Team
-                      </h4>
-                    </div>
+export const Login = () => {
+    
+        const [msg, setMsg] = useState('');
 
-                    <form>
-                      <p className="mb-4">Please login to your account</p>
-                      {/* Username input */}
-                      {/* ... */}
-                      {/* Password input */}
-                      {/* ... */}
-                      {/* Submit button */}
-                      {/* ... */}
-                      {/* Forgot password link */}
-                      {/* ... */}
-                      {/* Register button */}
-                      {/* ... */}
+        const handleSubmit = (event) => {
+            event.preventDefault();
+            if (!msg) {
+                alert("Post cannot be blank");
+            } else {
+                loggedin(msg);
+                setMsg("");
+            }
+        };
+
+        return (
+            <div className="shadow-lg shadow-gray-600 rounded-sm py-12 bg-rose-600 container mt-32 flex items-center justify-center">
+                <div className="left mr-36 w-1/2  py-36 relative left-36">
+                    <p className="text-7xl ml-3 mb-2 text-white text font-mono">HopeHub</p>
+                    <p className="text-3xl ml-3 italic font-semibold text-yellow-400">Uniting for a better tomorrow!</p>
+
+                </div>
+                <div className="right shadow-lg   mr-10 flex flex-col bg-white p-10 rounded-xl w-1/4 relative">
+                    <form onSubmit={handleSubmit}>
+                        <input className="outline-red-600 px-4 h-12 my-2 border-2 border-gray-300 rounded-3xl " type="text" placeholder="Email Address or Phone Number"></input>
+                        <input className="outline-red-600 px-4 h-12 my-2 border-2 border-gray-300 rounded-3xl " type="password" placeholder="Password"></input>
+                        <button className="bg-red-600 p-2 text-white my-2 rounded-3xl font-bold text-lg cursor-pointer hover:bg-red-700  ">Log In</button>
+                        <span className="text-red-600 text-center my-3 hover:underline cursor-pointer">Forgotten Password?</span>
+                        <hr className="my-2"></hr>
+                        <button className="bg-amber-400 border-2 hover:bg-yellow-500 hover:border-gray-400 hover:border-2 p-3 text-white my-3 rounded-3xl font-bold text-lg cursor-pointer w-fit mx-auto">Create New Account</button>
                     </form>
-                  </div>
+                    <span className="absolute -bottom-8 text-sm hover:underline cursor-pointer"><span className="font-bold">Create a page</span> for a Trust, NGO or Charity.</span>
                 </div>
-
-                {/* Right column container with background and description */}
-                <div
-                  className="flex items-center rounded-b-lg lg:w-6/12 lg:rounded-r-lg lg:rounded-bl-none"
-                  style={{
-                    background: 'linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593)',
-                  }}
-                >
-                  <div className="px-4 py-6 text-white md:mx-6 md:p-12">
-                    <h4 className="mb-6 text-xl font-semibold">
-                      We are more than just a company
-                    </h4>
-                    <p className="text-sm">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                      consequat.
-                    </p>
-                  </div>
-                </div>
-              </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
+        );
+    };
