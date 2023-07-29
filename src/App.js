@@ -5,6 +5,7 @@ import { PostForm } from "./Components/PostForm";
 import { SidePanel } from "./Components/SidePanel";
 import { PostsComponent } from './Components/PostsComponent';
 import React, { useState, useEffect } from 'react';
+import { LoginPage } from './Components/LoginComponents/Login';
 function App() {
   const [posts, setPosts] = useState([]);
   const addPosts = (msg) => {
@@ -25,12 +26,13 @@ function App() {
   }
   return (
     <div className="flex">
-      <SidePanel />
+      {/* <SidePanel />
       <div className="w-3/4 p-4">
         <Header />
         <PostForm addPosts = {addPosts}/>
         <PostsComponent posts = {posts}/>
-      </div>
+      </div> */}
+      <LoginPage/>
     </div>
   );
 }
