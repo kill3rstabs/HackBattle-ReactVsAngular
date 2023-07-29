@@ -31,23 +31,21 @@ function App() {
     console.log(myPosts);
   }
   return (
- 
-    // <div className="flex">
-    //   <SidePanel isOpen={isOpen} />;
-    //   <div className="w-3/4 p-4">
-    //     <Header toggleSidePanel={toggleSidePanel}/>
+
+    <div className="flex">
+      <SidePanel isOpen={isOpen} />;
+      <div className="w-3/4 p-4">
+        <Header toggleSidePanel={toggleSidePanel}/>
         
-    //     <PostForm addPosts = {addPosts}/>
-    //     <PostsComponent posts = {posts}/>
-    //   </div> 
+        <PostForm addPosts = {addPosts}/>
+        <PostsComponent posts = {posts}/>
+      </div> 
      
-    //  </div>
+     </div>
+  
+     
     // <>
-    // <Header/>
-    // <PostForm/>
-    // </>
-    // <>
-     <Login/>
+    //  <Login/>
     //  </>
   );
 }

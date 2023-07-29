@@ -1,0 +1,12 @@
+.threeLogos{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 130px;
+    position: absolute;
+    right: 190px;
+}
+.w3-dropdown-hover:first-child,.w3-dropdown-click:hover {
+    background-color:#ffffff;
+    color: #000
+}
