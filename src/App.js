@@ -5,7 +5,7 @@ import { PostForm } from "./Components/PostForm";
 import { SidePanel } from "./Components/SidePanel";
 import { PostsComponent } from './Components/PostsComponent';
 import React, { useState, useEffect } from 'react';
-import { Login } from './Components/LoginComponents/Login';
+import Login from "./Components/LoginComponents/Login"
 function App() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -31,22 +31,23 @@ function App() {
     console.log(myPosts);
   }
   return (
-    <div className="flex">
-      <SidePanel isOpen={isOpen} />;
-      <div className="w-3/4 p-4">
-        <Header toggleSidePanel={toggleSidePanel}/>
+ 
+    // <div className="flex">
+    //   <SidePanel isOpen={isOpen} />;
+    //   <div className="w-3/4 p-4">
+    //     <Header toggleSidePanel={toggleSidePanel}/>
         
-        <PostForm addPosts = {addPosts}/>
-        <PostsComponent posts = {posts}/>
-      </div> 
+    //     <PostForm addPosts = {addPosts}/>
+    //     <PostsComponent posts = {posts}/>
+    //   </div> 
      
-     </div>
+    //  </div>
     // <>
     // <Header/>
     // <PostForm/>
     // </>
     // <>
-    //  <Login/>
+     <Login/>
     //  </>
   );
 }
