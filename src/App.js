@@ -3,7 +3,7 @@ import './App.css';
 import { Header } from "./Components/Header";
 import { PostForm } from "./Components/PostForm";
 import { SidePanel } from "./Components/SidePanel";
-import { SinglePost } from './Components/SinglePost';
+import { PostsComponent } from './Components/PostsComponent';
 import React, { useState, useEffect } from 'react';
 function App() {
   const [posts, setPosts] = useState([]);
@@ -29,7 +29,7 @@ function App() {
       <div className="w-3/4 p-4">
         <Header />
         <PostForm addPosts = {addPosts}/>
-        <SinglePost posts = {posts}/>
+        <PostsComponent posts = {posts}/>
       </div>
     </div>
   );

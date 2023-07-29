@@ -6,7 +6,7 @@ export const PostForm = ({ addPosts }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (!msg) {
-      alert("Title or Description cannot be blank");
+      alert("Post cannot be blank");
     } else {
       addPosts(msg);
       setMsg("");
@@ -14,23 +14,23 @@ export const PostForm = ({ addPosts }) => {
   };
 
   return (
-    <div className="bg-white border-red-400 border-2 max-w-md h-72 mx-auto my-10 rounded-xl flex flex-col justify-between">
-      <form onSubmit={handleSubmit}>
+    <div className="bg-white border-red-400 border-2 max-w-md mx-auto my-10 rounded-xl shadow-md">
+      <form className="p-6" onSubmit={handleSubmit}>
         <textarea
-          className="mx-6 mt-7 mb-2 text-lg outline-gray-400 rounded-md border-red-400 font-thin"
+          className="w-full py-3 px-4 border rounded-lg resize-none focus:outline-none focus:ring focus:border-blue-600"
           name=""
           placeholder="What's happening?"
           id=""
-          cols="50"
-          rows="5"
+          cols="30"
+          rows="4"
           value={msg}
-          onChange={(event) => setMsg(event.target.value)} 
+          onChange={(event) => setMsg(event.target.value)}
         ></textarea>
-        <p className="ml-6 mb-3 font-semibold text-red-600">Everyone can reply</p>
-        <hr className="border-stone-500 my-3 mx-7" />
+        <p className="ml-2 mt-2 text-sm text-gray-600">Everyone can reply</p>
+        <hr className="border-gray-300 my-3" />
         <button
           type="submit"
-          className="p-2 text-white bg-red-600 ml-auto mr-4 w-16 rounded-3xl font-semibold text-lg cursor-pointer hover:bg-red-300 my-5"
+          className="px-4 py-2 ml-80 mr-10 text-white bg-red-600 rounded-3xl font-semibold text-lg cursor-pointer hover:bg-red-500 focus:outline-none"
         >
           Post
         </button>
@@ -38,3 +38,5 @@ export const PostForm = ({ addPosts }) => {
     </div>
   );
 };
+
+
