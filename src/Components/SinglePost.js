@@ -1,5 +1,5 @@
 import React from 'react';
-
+import "./SinglePost.css"
 export const SinglePost = ({ post }) => {
   return (
     <div className="container mt-3">
@@ -7,8 +7,9 @@ export const SinglePost = ({ post }) => {
         <div className="col-lg-8">
           <div className="card">
             <div className="card-body">
-              <div className="d-flex align-items-center mb-4">
-                <img
+              <div className="d-flex align-items-center justify-content-between mb-4">
+              <div className="d-flex align-items-center">
+              <img
                   src={post.userPhoto}
                   alt={post.username}
                   className="rounded-circle me-2"
@@ -16,6 +17,9 @@ export const SinglePost = ({ post }) => {
                   height="40"
                 />
                 <h3 className="card-title">@{post.username}</h3>
+              </div>
+                
+              <button type="button" class="btn btn-primary">Delete</button>
               </div>
               <p className="mx-6 mt-1 font-semibold text-xl">{post.msg}</p>
             </div>
