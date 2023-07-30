@@ -1,6 +1,6 @@
 import React from 'react';
 import "./SinglePost.css"
-export const SinglePost = ({ post }) => {
+export const SinglePost = ({ post,onDelete }) => {
   return (
     <div className="container mt-3">
       <div className="row justify-content-center">
@@ -19,7 +19,7 @@ export const SinglePost = ({ post }) => {
                 <h3 className="card-title">@{post.username}</h3>
               </div>
                 
-              <button type="button" class="btn btn-primary">Delete</button>
+              <button className="btn btn-danger"onClick={()=>{onDelete(todo)}}>Delete</button>
               </div>
               <p className="mx-6 mt-1 font-semibold text-xl">{post.msg}</p>
             </div>

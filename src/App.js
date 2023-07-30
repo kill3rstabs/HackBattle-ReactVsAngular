@@ -12,8 +12,20 @@ function App() {
   const toggleSidePanel = () => {
     setIsOpen((prevIsOpen) => !prevIsOpen);
   };
-
+  
   const [posts, setPosts] = useState([]);
+  const onDelete = (post) => {
+    console.log("I am ondelete of todo", post);
+    // Deleting this way in react does not work
+    // let index = todos.indexOf(todo);
+    // todos.splice(index, 1);
+
+    setTodos(posts.filter((e) => {
+      return e !== post;
+    }));
+    console.log("deleted", posts)
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }
   const addPosts = (msg) => {
     console.log("I am adding this Post", posts)
     let sno;
