@@ -1,5 +1,7 @@
 import React from 'react';
 import './Messages.css';
+import { MessageComp } from './MessageComp';
+import { SendMessage } from './SendMessage';
 
 export function Messages() {
   return (
@@ -32,30 +34,7 @@ export function Messages() {
             </ul>
           </div>
         </div>
-        <div className="col-9">
-          {/* Chat area */}
-          <div className="p-3 bg-white rounded shadow-sm">
-            <h5>User 1</h5>
-            <hr />
-            {/* Message list */}
-            <div className="messages">
-              {/* Example messages */}
-              <div className="message sent">Hello!</div>
-              <div className="message received">Hi there!</div>
-              {/* Add more messages */}
-            </div>
-            {/* Message input */}
-            <div className="input-group mt-3">
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Type your message..."
-                aria-label="Type your message..."
-              />
-              <button className="btn btn-primary">Send</button>
-            </div>
-          </div>
-        </div>
+        <SendMessage/>
       </div>
     </div>
   );

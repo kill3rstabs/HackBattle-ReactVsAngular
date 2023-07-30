@@ -7,6 +7,7 @@ import { PostsComponent } from './Components/PostsComponent';
 import React, { useState, useEffect } from 'react';
 import Login from "./Components/LoginComponents/Login"
 import { Messages } from './Components/MessageComponent/Messages';
+import { Notification } from "./Components/NotificationComponents/Notification";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,6 +28,15 @@ function App() {
     }));
     console.log("deleted", posts)
     
+  }
+  const searchPosts = (query) =>{
+    let myQuery = query
+    posts.forEach((post)=>{
+      if(post.msg === query){
+        // setPosts([...query, myQuery]);
+        console.log(myQuery);
+      }
+    })
   }
   const addPosts = (msg) => {
     console.log("I am adding this Post", posts)
@@ -67,13 +77,32 @@ function App() {
         <Route path="/frontpage" element={<div className="flex">
       <SidePanel isOpen={isOpen} />;
       <div className="w-3/4 p-4">
-        <Header toggleSidePanel={toggleSidePanel}/>
+        <Header toggleSidePanel={toggleSidePanel} searchPosts={searchPosts}/>
         
         <PostForm addPosts = {addPosts}/>
         <PostsComponent posts = {posts} onDelete={onDelete}/>
       </div> 
      
      </div>} />
+     <Route path="/messages" element={<div className="flex">
+      <SidePanel isOpen={isOpen} />;
+      <div className="w-3/4 p-4">
+        <Header toggleSidePanel={toggleSidePanel} searchPosts={searchPosts}/>
+        
+        <Messages/>
+      </div> 
+     
+     </div>} />
+     <Route path = "/notifications" element={<div className="flex">
+      <SidePanel isOpen={isOpen} />;
+      <div className="w-3/4 p-4">
+        <Header toggleSidePanel={toggleSidePanel} searchPosts={searchPosts}/>
+        
+        <Notification/>
+      </div> 
+     
+     </div>} />
+     
       </Routes>
     </Router>
   );

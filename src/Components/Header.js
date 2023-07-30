@@ -1,14 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import './Header.css'
 import messageIcon from "../Components/assets/message.png"
-export const Header = ({ toggleSidePanel }) => {
+import { Link } from "react-router-dom";
+
+export const Header = ({ toggleSidePanel, searchPosts}) => {
+  const [query, setQuery] = useState("");
+  const submit = (e) => {
+    // e.preventDefault();
+    e.preventDefault();
+    if(!query){
+      alert("Search cannot be blank");
+    }
+    else{
+      searchPosts(query);
+      setQuery("");
+      
+    }
+    }
+
   return (
     <header id="header" className="header fixed-top d-flex align-items-center">
       <div className="d-flex align-items-center justify-content-between">
-        <a href="index.html" className="logo d-flex align-items-center">
+        <Link to="/frontpage" className="logo d-flex align-items-center">
           <img src="./public/Logo.png" alt="" />
           <span className="d-none d-lg-block">HopeHub</span>
-        </a>
+        </Link>
 
         <button
           className="bi bi-list toggle-sidebar-btn btn btn-outline-secondary"
@@ -20,14 +36,14 @@ export const Header = ({ toggleSidePanel }) => {
       <div className="search-bar">
         <form
           className="search-form d-flex align-items-center"
-          method="POST"
-          action="#"
+          onSubmit={submit}
         >
           <input
             type="text"
             name="query"
             placeholder="Search"
             title="Enter search keyword"
+            value = {query} onChange = {(e)=>{setQuery(e.target.value)}}
           />
           <button type="submit" title="Search">
             <i className="bi bi-search"></i>
