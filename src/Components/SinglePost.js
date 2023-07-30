@@ -19,7 +19,7 @@ export const SinglePost = ({ post,onDelete }) => {
                 <h3 className="card-title">@{post.username}</h3>
               </div>
                 
-              <button className="btn btn-danger"onClick={()=>{onDelete(todo)}}>Delete</button>
+              <button className="btn btn-danger"onClick={()=>{onDelete(post)}}>Delete</button>
               </div>
               <p className="mx-6 mt-1 font-semibold text-xl">{post.msg}</p>
             </div>

@@ -1,0 +1,20 @@
+/* src/App.css */
+.messages {
+  height: 400px;
+  overflow-y: auto;
+}
+
+.message {
+  padding: 10px;
+  border-radius: 8px;
+  margin: 5px 0;
+}
+
+.sent {
+  background-color: #dcf8c6;
+  align-self: flex-end;
+}
+
+.received {
+  background-color: #f3f3f3;
+}

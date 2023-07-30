@@ -6,6 +6,8 @@ import { SidePanel } from "./Components/SidePanel";
 import { PostsComponent } from './Components/PostsComponent';
 import React, { useState, useEffect } from 'react';
 import Login from "./Components/LoginComponents/Login"
+import { Messages } from './Components/MessageComponent/Messages';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 function App() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -20,11 +22,11 @@ function App() {
     // let index = todos.indexOf(todo);
     // todos.splice(index, 1);
 
-    setTodos(posts.filter((e) => {
+    setPosts(posts.filter((e) => {
       return e !== post;
     }));
     console.log("deleted", posts)
-    localStorage.setItem("todos", JSON.stringify(todos));
+    
   }
   const addPosts = (msg) => {
     console.log("I am adding this Post", posts)
@@ -44,21 +46,36 @@ function App() {
   }
   return (
 
-    <div className="flex">
+    // <div className="flex">
+    //   <SidePanel isOpen={isOpen} />;
+    //   <div className="w-3/4 p-4">
+    //     <Header toggleSidePanel={toggleSidePanel}/>
+        
+    //     <PostForm addPosts = {addPosts}/>
+    //     <PostsComponent posts = {posts} onDelete={onDelete}/>
+    //   </div> 
+     
+    //  </div>
+  
+    // <Messages/>
+    // <>
+    //  <Login/>
+    //  </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/frontpage" element={<div className="flex">
       <SidePanel isOpen={isOpen} />;
       <div className="w-3/4 p-4">
         <Header toggleSidePanel={toggleSidePanel}/>
         
         <PostForm addPosts = {addPosts}/>
-        <PostsComponent posts = {posts}/>
+        <PostsComponent posts = {posts} onDelete={onDelete}/>
       </div> 
      
-     </div>
-  
-     
-    // <>
-    //  <Login/>
-    //  </>
+     </div>} />
+      </Routes>
+    </Router>
   );
 }
 
